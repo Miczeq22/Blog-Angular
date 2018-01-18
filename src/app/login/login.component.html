@@ -1,0 +1,18 @@
+<h4>Zaloguj się</h4>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Login</label>
+    <input type="text" name="username" id="username" formControlName="username">
+    <p *ngIf="(username.touched && username.invalid)" class="red-text lighten-2">Login nie może być pusty</p>
+  </div>
+  <div>
+      <label for="password">Hasło</label>
+      <input type="password" name="password" id="password" formControlName="password">
+      <p *ngIf="(password.touched && password.invalid)" class="red-text lighten-2">Hasło nie może być puste</p>
+    </div>
+    <div>
+      <button class="btn waves-effect waves-light blue-grey darken-2" [disabled]="!loginForm.valid">Zaloguj się</button>
+    </div>
+</form>
+<p *ngIf="invalid" class="red-text darken-1">Login lub hasło jest niepoprawne</p>
+<p class="green-text darken-1">Nie masz konta? <a [routerLink]="['/register']">Zarejestruj się</a></p>

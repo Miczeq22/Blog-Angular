@@ -1,0 +1,28 @@
+.article {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 5px solid #dddddd;
+  box-shadow: 1px 1px 5px 1px #222222;
+}
+
+.article .img {
+  height: 30vh;
+  border-radius: 3px;
+}
+
+.article h1 {
+  text-align: center;
+}
+
+.article .content {
+  margin-top: 5px;
+  text-align: justify;
+  padding: 10px;
+}
+
+.container {
+  width: 70%;
+  margin: 10px auto;
+  padding: 10px;
+}

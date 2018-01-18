@@ -1,0 +1,40 @@
+<div style="width: 100%; margin: 10px auto; border: 2px solid #ccc; padding: 30px;" class="z-depth-4 white">
+  <h3>Formularz użytkownika</h3>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <input type="hidden" formControlName="id">
+    <div>
+      <label for="username">Login</label>
+      <input type="text" name="username" id="username" formControlName="username">
+      <p *ngIf="(username.touched && username.invalid)" class="red-text darken-2">Login nie może być pusty</p>
+    </div>
+
+    <div>
+      <label for="password">Hasło</label>
+      <input type="password" name="password" id="password" formControlName="password">
+      <p *ngIf="(password.touched && password.invalid)" class="red-text darken-2">Hasło nie może być puste</p>
+    </div>
+
+    <div>
+      <label for="firstname">Imię</label>
+      <input type="text" name="firstname" id="firstname" formControlName="firstname">
+      <p *ngIf="(firstname.touched && firstname.invalid)" class="red-text darken-2">Imię nie może być puste</p>
+    </div>
+
+    <div>
+      <label for="lastname">Nazwisko</label>
+      <input type="text" name="lastname" id="lastname" formControlName="lastname">
+      <p *ngIf="(lastname.touched && lastname.invalid)" class="red-text darken-2">Nazwisko nie może być puste</p>
+    </div>
+
+    <div>
+      <label for="email">E-mail</label>
+      <input type="text" name="email" id="email" formControlName="email">
+      <p *ngIf="(email.touched && email.invalid)" class="red-text darken-2">E-mail nie może być pusty</p>
+    </div>
+
+    <div>
+      <button class="btn waves-effect waves-light green lighten-2" [disabled]="!userForm.valid">Zapisz</button>
+    </div>
+
+  </form>
+</div>

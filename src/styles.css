@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #eeeeee;
+}
+
 main {
   display: flex;
   min-height: 75vh;

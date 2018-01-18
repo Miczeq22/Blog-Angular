@@ -1,0 +1,19 @@
+<div *ngIf="user" style="width: 100%; margin: 10px auto; border: 2px solid #ccc; padding: 30px;" class="z-depth-4 white">
+  <h3>Edytuj swoje dane:</h3>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <input type="hidden" formControlName="id">
+    <div>
+      <label for="firstname">Imię</label>
+      <input type="text" name="firstname" id="firstname" formControlName="firstname">
+    </div>
+
+    <div>
+      <label for="lastname">Nazwisko</label>
+      <input type="text" name="lastname" id="lastname" formControlName="lastname">
+    </div>
+
+    <div>
+      <button class="btn waves-effect waves-light green lighten-2" [disabled]="!userForm.valid">Zapisz</button>
+    </div>
+  </form>
+</div>

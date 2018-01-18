@@ -1,0 +1,29 @@
+.cell {
+  display: block;
+  margin: 1rem;
+}
+
+.cell img {
+  max-width: 100%;
+  display: block;
+  height: 5vh;
+}
+
+
+@media screen and (min-width: 600px) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .cell {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cell {
+    width: calc(33.3333% - 2rem);
+  }
+}

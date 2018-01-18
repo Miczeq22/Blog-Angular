@@ -1,0 +1,41 @@
+<div *ngIf="article">
+  <div class="card z-depth-4">
+    <div class="card-image">
+      <!-- <div class="img" [ngStyle]="{'background-image': 'url(' + article.imgUrl + ')', 'background-size': 'cover'  }"></div> -->
+      <img src="{{ article.imgUrl }}">
+    </div>
+    <div class="card-content">
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.content }}</p>
+      <div *ngIf="isAdmin">
+        <h4>Zarządzaj artykułem</h4>
+        <p>
+          <a [routerLink]="['/edit-article', article.id]" class="btn waves-effect waves-light green-lighten-2">Edytuj</a>
+          <button class="btn waves-effect waves-light red" (click)="remove()">Usuń</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%; margin: 10px auto; border: 2px solid #ccc; padding: 30px;" class="z-depth-4 white  ">
+  <h5>Dodaj komentarz:</h5>
+  <form [formGroup]="commentForm" (ngSubmit)="addComment()" id="commentForm">
+    <input type="hidden" formControlName="id">
+    <div>
+      <label for="title">Tytuł</label>
+      <input type="text" name="title" id="title" formControlName="title">
+    </div>
+    <div>
+      <label for="content">Treść</label>
+      <textarea name="content" id="content" formControlName="content" class="materialize-textarea" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <button class="btn waves-effect waves-light green-lighten-2">Dodaj</button>
+    </div>
+  </form>
+</div>
+
+<div *ngFor="let comment of comments" style="width: 100%; margin: 10px auto; border: 2px solid #ccc; padding: 30px;" class="z-depth-4 white  ">
+  <app-comment [comment]="comment"></app-comment>
+</div>

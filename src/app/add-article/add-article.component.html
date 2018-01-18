@@ -1,0 +1,26 @@
+<div style="width: 100%; margin: 10px auto; border: 2px solid #ccc; padding: 30px;" class="z-depth-4 white">
+  <form [formGroup]="articleForm" (ngSubmit)="submit()">
+    <input type="hidden" formControlName="id">
+    <div>
+      <label for="title">Tytuł</label>
+      <input type="text" name="title" id="title" formControlName="title">
+      <p *ngIf="(title.touched && title.invalid)" class="red-text darken-2">Tytuł nie może być pusty</p>
+    </div>
+
+    <div>
+      <label for="imgUrl">URL Obrazu</label>
+      <input type="text" name="imgUrl" id="imgUrl" formControlName="imgUrl">
+      <p *ngIf="(imgUrl.touched && imgUrl.invalid)" class="red-text darken-2">URL nie może być puste</p>
+    </div>
+
+    <div>
+      <label for="content">Treść</label>
+      <textarea name="content" id="content" formControlName="content" class="materialize-textarea" cols="30" rows="10"></textarea>
+      <p *ngIf="(content.touched && content.invalid)" class="red-text darken-2">Treść nie może być pusta</p>
+    </div>
+
+    <div>
+      <button [disabled]="!articleForm.valid" class="btn waves-effect waves-light green lighten-2">Zapisz</button>
+    </div>
+  </form>
+</div>

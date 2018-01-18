@@ -1,0 +1,38 @@
+<div id="commentForm"></div>
+<div *ngIf="comment" class="comment">
+  <h5 class="title">{{ comment.title }}</h5>
+  <h6 *ngIf="username" class="username">Autor: {{ username }}</h6>
+  <h6 class="date">Data dodania: {{ comment.lastUpdateDate }}</h6>
+  <p class="content"> {{ comment.content }} </p>
+  <div *ngIf="isLoggedUser">
+      <button class="waves-effect waves-light btn modal-trigger" data-target="editComment" (click)="edit()">Edytuj</button>
+    <button class="btn waves-effect waves-light red" (click)="remove()">Usuń</button>
+  </div>
+</div>
+
+<div id="editComment" class="modal">
+  <div class="modal-content">
+    <h4>Edytuj komentarz</h4>
+
+    <div class="row">
+      <form [formGroup]="commentForm" class="col s12">
+        <input type="hidden" formCotrolName="id">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" class="validate" formCotrolName="title">
+            <label for="title">Tytuł</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="content" type="text" class="materialize-textarea validate" formCotrolName="content"></textarea>
+            <label for="content">Treść</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat">Zapisz</a>
+  </div>
+</div>
